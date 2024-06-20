@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="822.0" style="-fx-background-color: #eaf5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1161.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 5 5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../icons/icons8-keys-holder-100.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="pageTitleLabel" text="ASSIGN A KEY" textFill="#084c80">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox layoutX="107.0" layoutY="46.0" prefHeight="554.0" prefWidth="968.0" spacing="10.0" style="-fx-background-color: #eaf5ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <VBox prefHeight="534.0" prefWidth="422.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="411.0">
+                     <children>
+                        <Label fx:id="pageTitleLabel1" text="VALIDATE REQUEST PERSONNEL" textFill="#084c80">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <VBox prefHeight="113.0" prefWidth="411.0" spacing="5.0">
+                     <children>
+                        <VBox prefHeight="58.0" prefWidth="323.0" spacing="2.0">
+                           <children>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Eenter card number for verification *">
+                                 <font>
+                                    <Font name="Arial Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="399.0" style="-fx-background-color: #337fb5;" text="QUICK CHECK 🔎" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <StackPane fx:id="statusContainer" prefHeight="31.0" prefWidth="391.0" style="-fx-background-color: #fdd5d5; -fx-background-radius: 5;">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="statusText" text="THIS PERSON IS NOT ALLOED" textFill="#a10a00">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <HBox alignment="CENTER" prefHeight="153.0" prefWidth="384.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;">
+                     <children>
+                        <ImageView fitHeight="148.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons8-landlord-100.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.8333333134651184" green="0.8333333134651184" blue="0.8333333134651184" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </HBox>
+                  <GridPane alignment="CENTER" prefHeight="98.0" prefWidth="398.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.33331298828125" minWidth="10.0" prefWidth="94.66666666666667" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.6666793823242" minWidth="10.0" prefWidth="296.6666666666667" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="FULL NAME">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="TITLE" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="DEPARTMENT" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="DR. KOFI MENSAH ATSU" textFill="#0a5f8d" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="HOD COMPUTER SCIENCE" textFill="#0a5f8d" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="COMPUTER SCIENCE" textFill="#0a5f8d" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="534.0" prefWidth="432.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="411.0">
+                     <children>
+                        <Label fx:id="pageTitleLabel11" text="ISSUE KEY" textFill="#084c80">
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Separator prefHeight="3.0" prefWidth="517.0" />
+                  <VBox prefHeight="59.0" prefWidth="345.0" spacing="2.0">
+                     <children>
+                        <Label text="Select A Block *">
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                        </Label>
+                        <ComboBox prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="59.0" prefWidth="345.0" spacing="2.0">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                        <Label text="Select Available Key *">
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                        </Label>
+                        <ComboBox prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                        <Label text="Purpose *">
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                        </Label>
+                        <TextArea prefHeight="145.0" prefWidth="434.0">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Separator prefHeight="3.0" prefWidth="517.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="40.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
+                     <buttons>
+                        <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="ISSUE KEY" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CANCEL " textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </buttons>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ButtonBar>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

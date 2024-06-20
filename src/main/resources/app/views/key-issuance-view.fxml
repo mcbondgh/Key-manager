@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" style="-fx-background-color: #eaf5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.keys.IssueKeysController">
+   <children>
+      <VBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1161.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 5 5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="pageTitleLabel" text="Label" textFill="#084c80">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="77.0" layoutY="44.0" prefHeight="556.0" prefWidth="1161.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="44.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1141.0" spacing="5.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Label text="🔎" textFill="#8f8f8f">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="37.0" prefWidth="686.0" promptText="Filter Table" style="-fx-border-color: #d8f1ff; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 4px;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <MenuButton mnemonicParsing="false" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #337fb5;" text="Menu" textFill="WHITE">
+                    <items>
+                      <MenuItem fx:id="issueKeyButton" mnemonicParsing="false" onAction="#issueKeyButtonClicked" style="-fx-pre-width: 400px; -fx-font-size: 13px; -fx-font-family: arial; -fx-padding: 5 0 5 0;" text="Issue Key" />
+                      <MenuItem fx:id="viewKeyTransactions" mnemonicParsing="false" onAction="#viewKeyTransactionsButtonClicked" style="-fx-pre-width: 400px; -fx-font-size: 13px; -fx-font-family: arial; -fx-padding: 5 0 5 0;" text="Transaction History" />
+                    </items>
+                     <HBox.margin>
+                        <Insets left="240.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </MenuButton>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <TableView prefHeight="439.0" prefWidth="1141.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="COUNT" />
+                <TableColumn prefWidth="121.99999237060547" text="KEY CODE" />
+                  <TableColumn prefWidth="158.6666717529297" text="PERSONNEL NAME" />
+                  <TableColumn prefWidth="134.66665649414062" text="TITLE" />
+                  <TableColumn prefWidth="237.33331298828125" text="PURPOSE" />
+                  <TableColumn prefWidth="132.00006103515625" text="STATUS" />
+                  <TableColumn prefWidth="206.0" text="ISSUED DATE" />
+                  <TableColumn prefWidth="73.3333740234375" text="ACTION" />
+              </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

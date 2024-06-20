@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" style="-fx-background-color: #eaf5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.blocks.BlocksAndOfficesController">
+   <children>
+      <VBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1161.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 5 5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <Label fx:id="pageTitleLabel" text="Label" textFill="#084c80">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button layoutX="1097.0" layoutY="202.0" mnemonicParsing="false" text="button" AnchorPane.rightAnchor="12.333333333333258" />
+      <SplitPane dividerPositions="0.47151898734177217" layoutX="184.0" layoutY="45.333333333333336" prefHeight="555.0" prefWidth="1161.0" style="-fx-background-color: #eaf5ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox layoutX="180.0" layoutY="45.0" prefHeight="552.6666666666666" prefWidth="525.3333333333334" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="523.0" style="-fx-background-color: #d8f1ff;">
+                           <children>
+                              <Label text="MANAGE BLOCKS" textFill="#337fb5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </HBox>
+                        <VBox prefHeight="161.0" prefWidth="503.0">
+                           <children>
+                              <TableView prefHeight="211.0" prefWidth="503.0">
+                                 <columns>
+                                    <TableColumn prefWidth="255.33328247070312" text="BLOCK NAME" />
+                                    <TableColumn prefWidth="160.6666259765625" text="ALIAS" />
+                                    <TableColumn prefWidth="88.0" text="ROOM COUNT" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <VBox prefHeight="69.0" prefWidth="503.0" spacing="2.0">
+                           <children>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Block Name *">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox spacing="10.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                           <children>
+                              <VBox prefHeight="58.0" prefWidth="323.0" spacing="2.0">
+                                 <children>
+                                    <Label text="Block Alias">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="58.0" prefWidth="323.0" spacing="2.0">
+                                 <children>
+                                    <Label text="Number Of Rooms *">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="85.0" prefWidth="503.0" spacing="2.0">
+                           <children>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Additional Comments">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #eee; -fx-color: #eee;">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
+                           <buttons>
+                              <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE BLOCK" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </buttons>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ButtonBar>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="552.6666666666666" prefWidth="627.3333333333334" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="589.0" style="-fx-background-color: #d8f1ff;">
+                           <children>
+                              <Label text="MANAGE ROOMS" textFill="#337fb5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="589.0" spacing="5.0">
+                           <children>
+                              <Label text="🔎" textFill="#bcbcbc">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="33.0" prefWidth="451.0" promptText="Filter Table" style="-fx-border-color: #eee; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 2PX;">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <VBox prefHeight="161.0" prefWidth="569.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <children>
+                              <TableView prefHeight="211.0" prefWidth="569.0">
+                                <columns>
+                                  <TableColumn prefWidth="121.99993324279785" text="ROOM NUMBER" />
+                                  <TableColumn prefWidth="364.00001525878906" text="DESCRIPTION" />
+                                    <TableColumn prefWidth="83.33334350585938" text="STATUS" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox>
+                           <children>
+                              <VBox prefHeight="62.0" prefWidth="211.0" spacing="2.0">
+                                 <children>
+                                    <Label text="Room Number *">
+                                       <font>
+                                          <Font name="Arial Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefHeight="34.0" prefWidth="283.0" promptText="AD 300" style="-fx-background-color: #eee;">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="62.0" prefWidth="192.0" spacing="2.0">
+                                 <children>
+                                    <Label text="Room Type *">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox prefHeight="30.0" prefWidth="589.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                 </padding>
+                              </VBox>
+                              <HBox>
+                                 <children>
+                                    <VBox prefHeight="62.0" prefWidth="181.0" spacing="2.0">
+                                       <children>
+                                          <Label text="Block *">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox prefHeight="30.0" prefWidth="589.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" right="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <VBox prefHeight="106.0" prefWidth="569.0" spacing="2.0">
+                           <children>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Room Description">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #eee; -fx-color: #eee;">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="123.0" text="Activate Room" textFill="#08a835">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
+                           <buttons>
+                              <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE ROOM" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </buttons>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </ButtonBar>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
