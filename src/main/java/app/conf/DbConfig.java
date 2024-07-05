@@ -10,9 +10,9 @@ public class DbConfig {
     public DbConfig() {}
     private static final String USERNAME = "ktukeys";
     private static final String PASSWORD = "keys123";
-    private static final String PATH = "jdbc:mysql://localhost:3308/keys_manager";
+    private static final String PATH = "jdbc:mysql://localhost:3308/key_manager";
     Connection connection;
-    public Connection getConnection() throws IOException {
+    public Connection getConnection() {
         try {
            connection = DriverManager.getConnection(PATH, USERNAME, PASSWORD);
 //            connection.setAutoCommit(false);

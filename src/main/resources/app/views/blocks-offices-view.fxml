@@ -37,7 +37,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <VBox layoutX="180.0" layoutY="45.0" prefHeight="552.6666666666666" prefWidth="525.3333333333334" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox layoutX="180.0" layoutY="45.0" onMouseMoved="#checkForEmptyFieldsInBlocksLayout" prefHeight="552.6666666666666" prefWidth="525.3333333333334" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="523.0" style="-fx-background-color: #d8f1ff;">
                            <children>
@@ -53,11 +53,11 @@
                         </HBox>
                         <VBox prefHeight="161.0" prefWidth="503.0">
                            <children>
-                              <TableView prefHeight="211.0" prefWidth="503.0">
+                              <TableView fx:id="blocksTable" fixedCellSize="30.0" onMouseClicked="#blocksTableSelected" prefHeight="211.0" prefWidth="503.0" style="-fx-font-family: roboto; -fx-font-size: 12px;">
                                  <columns>
-                                    <TableColumn prefWidth="255.33328247070312" text="BLOCK NAME" />
-                                    <TableColumn prefWidth="160.6666259765625" text="ALIAS" />
-                                    <TableColumn prefWidth="88.0" text="ROOM COUNT" />
+                                    <TableColumn fx:id="blockNameColumn" prefWidth="218.66671752929688" text="BLOCK NAME" />
+                                    <TableColumn fx:id="blockAliasColumn" prefWidth="156.6666259765625" text="ALIAS" />
+                                    <TableColumn fx:id="blockCountColumn" prefWidth="100.0" text="ROOM COUNT" />
                                  </columns>
                               </TableView>
                            </children>
@@ -73,7 +73,7 @@
                                     <Font name="Arial Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                              <TextField fx:id="blockNameField" prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
                                  <font>
                                     <Font name="Arial" size="14.0" />
                                  </font>
@@ -100,7 +100,7 @@
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                                    <TextField fx:id="blockAliasField" prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -114,7 +114,7 @@
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                                    <TextField fx:id="roomCountField" onKeyTyped="#validateRoomCountField" prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -131,7 +131,7 @@
                                     <Font name="Arial Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #eee; -fx-color: #eee;">
+                              <TextArea fx:id="blockCommentField" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #eee; -fx-color: #eee;">
                                  <font>
                                     <Font name="Arial" size="14.0" />
                                  </font>
@@ -143,7 +143,7 @@
                         </VBox>
                         <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
                            <buttons>
-                              <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE BLOCK" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="saveBlockBtn" alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE BLOCK" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -151,7 +151,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="clearBlockBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearBlocksButtonClicked" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -173,7 +173,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <VBox prefHeight="552.6666666666666" prefWidth="627.3333333333334" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox onMouseMoved="#checkForEmptyFieldsInRoomsLayout" prefHeight="552.6666666666666" prefWidth="627.3333333333334" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="589.0" style="-fx-background-color: #d8f1ff;">
                            <children>
@@ -189,12 +189,12 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="589.0" spacing="5.0">
                            <children>
-                              <Label text="🔎" textFill="#bcbcbc">
+                              <Label prefHeight="30.0" prefWidth="37.0" text="🔎" textFill="#bcbcbc">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="33.0" prefWidth="451.0" promptText="Filter Table" style="-fx-border-color: #eee; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 2PX;">
+                              <TextField fx:id="filterField" onKeyPressed="#filterRoomsTable" prefHeight="33.0" prefWidth="420.0" promptText="Filter Table" style="-fx-border-color: #eee; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 2PX;">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -212,11 +212,12 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                            <children>
-                              <TableView prefHeight="211.0" prefWidth="569.0">
+                           <TableView fx:id="roomsTable" fixedCellSize="30.0" onMouseClicked="#roomsTableSelected" prefHeight="211.0" prefWidth="569.0" style="-fx-font-family: roboto; -fx-font-size: 12px;">
                                 <columns>
-                                  <TableColumn prefWidth="121.99993324279785" text="ROOM NUMBER" />
-                                  <TableColumn prefWidth="364.00001525878906" text="DESCRIPTION" />
-                                    <TableColumn prefWidth="83.33334350585938" text="STATUS" />
+                                  <TableColumn fx:id="roomNoColumn" prefWidth="145.99993324279785" text="ROOM NUMBER" />
+                                  <TableColumn fx:id="roomTypeColumn" prefWidth="194.66664123535156" text="ROOM TYPE" />
+                                    <TableColumn fx:id="roomBlockColumn" prefWidth="125.3333740234375" text="BLOCK" />
+                                    <TableColumn fx:id="statusColumn" prefWidth="99.33334350585938" text="STATUS" />
                                 </columns>
                               </TableView>
                            </children>
@@ -235,7 +236,7 @@
                                           <Font name="Arial Bold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="34.0" prefWidth="283.0" promptText="AD 300" style="-fx-background-color: #eee;">
+                                    <TextField fx:id="roomNoField" prefHeight="34.0" prefWidth="283.0" promptText="AD 300" style="-fx-background-color: #eee;">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -249,7 +250,7 @@
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox prefHeight="30.0" prefWidth="589.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                                    <ComboBox fx:id="roomTypeSelector" prefHeight="30.0" prefWidth="589.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" />
@@ -264,7 +265,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox prefHeight="30.0" prefWidth="589.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                                          <ComboBox fx:id="blockSelector" prefHeight="30.0" prefWidth="589.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
                                        </children>
                                        <padding>
                                           <Insets bottom="10.0" right="10.0" />
@@ -285,7 +286,7 @@
                                     <Font name="Arial Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #eee; -fx-color: #eee;">
+                              <TextArea fx:id="roomCommentField" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #eee; -fx-color: #eee;">
                                  <font>
                                     <Font name="Arial" size="14.0" />
                                  </font>
@@ -295,7 +296,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" />
                            </VBox.margin>
                         </VBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="123.0" text="Activate Room" textFill="#08a835">
+                        <CheckBox fx:id="statusCheckbox" mnemonicParsing="false" prefHeight="17.0" prefWidth="123.0" selected="true" text="Activate Room" textFill="#1154a1">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" />
                            </VBox.margin>
@@ -310,7 +311,7 @@
                         </Separator>
                         <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
                            <buttons>
-                              <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE ROOM" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="saveRoomBtn" alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" onAction="#saveRoomButtonClicked" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE ROOM" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -318,7 +319,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="clearRoomBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearRoomsButtonClicked" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>

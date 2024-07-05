@@ -32,13 +32,17 @@ public class AppStages {
         stage.show();
     }
 
-    public static void databaseFailedStage() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(AppStarter.class.getResource("views/db_views/db-failed-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Key Manager");
-        stage.setScene(scene);
-        stage.show();
+    public static void databaseFailedStage(){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(AppStarter.class.getResource("views/db_views/db-failed-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Key Manager");
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        }catch (IOException e) {}
+
     }
 
     public static void loginStage() throws IOException {

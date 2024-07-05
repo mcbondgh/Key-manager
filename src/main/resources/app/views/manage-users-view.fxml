@@ -46,7 +46,7 @@
                         </Label>
                      </children>
                   </FlowPane>
-                  <VBox prefHeight="399.0" prefWidth="318.0">
+                  <VBox onMouseMoved="#checkFields" prefHeight="399.0" prefWidth="318.0">
                      <children>
                         <VBox prefHeight="62.0" prefWidth="310.0" spacing="2.0">
                            <children>
@@ -55,34 +55,21 @@
                                     <Font name="Arial Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="30.0" prefWidth="283.0" promptText="kofi" style="-fx-background-color: #eee;">
+                              <TextField fx:id="nameField" prefHeight="30.0" prefWidth="283.0" promptText="kofi" style="-fx-background-color: #eee; -fx-text-fill: #333;">
                                  <font>
-                                    <Font name="Arial" size="14.0" />
+                                    <Font name="Arial Bold" size="12.0" />
                                  </font>
                               </TextField>
                            </children>
                         </VBox>
-                        <VBox prefHeight="43.0" prefWidth="310.0" spacing="2.0">
+                        <VBox prefHeight="63.0" prefWidth="318.0" spacing="2.0">
                            <children>
                               <Label text="Select Role *">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <ComboBox prefHeight="30.0" prefWidth="336.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox prefHeight="43.0" prefWidth="310.0" spacing="2.0">
-                           <children>
-                              <Label text="Select Position *">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox prefHeight="30.0" prefWidth="336.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                              <ComboBox fx:id="roleSelector" prefHeight="30.0" prefWidth="336.0" style="-fx-background-color: #eee; -fx-font-size: 12px; -fx-font-family: arial;" />
                            </children>
                            <padding>
                               <Insets bottom="10.0" />
@@ -95,7 +82,10 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <PasswordField minHeight="30.0" style="-fx-background-color: #eee;" />
+                              <PasswordField fx:id="passwordField" minHeight="30.0" onKeyTyped="#validatePasswordFields" style="-fx-background-color: #eee;">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font></PasswordField>
                            </children>
                            <padding>
                               <Insets bottom="10.0" />
@@ -108,15 +98,26 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <PasswordField minHeight="30.0" style="-fx-background-color: #eee;" />
+                              <PasswordField fx:id="confirmField" minHeight="30.0" onKeyTyped="#validatePasswordFields" style="-fx-background-color: #eee;">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font></PasswordField>
                            </children>
                            <padding>
                               <Insets bottom="10.0" />
                            </padding>
                         </VBox>
+                        <Label fx:id="indicator" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="307.0" style="-fx-background-color: #ff0000; -fx-background-radius: 5px;" text="⛔ Password fields do not match" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </Label>
                         <ButtonBar prefHeight="48.0" prefWidth="367.0" style="-fx-alignment: center;">
                            <buttons>
-                              <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" onAction="#saveUser" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -124,7 +125,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearFields" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -133,10 +134,16 @@
                                  </cursor>
                               </Button>
                            </buttons>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
                         </ButtonBar>
                      </children>
                      <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                      </VBox.margin>
                   </VBox>
                </children>
@@ -155,13 +162,12 @@
                         </Label>
                      </children>
                   </FlowPane>
-                  <TableView prefHeight="467.0" prefWidth="800.0">
+                  <TableView fx:id="usersTable" fixedCellSize="30.0" onMouseClicked="#tableItemSelected" onMouseEntered="#tableItemSelected" prefHeight="467.0" prefWidth="800.0" style="-fx-font-size: 14px; -fx-font-family: roboto;">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="ID" />
-                      <TableColumn prefWidth="271.3334045410156" resizable="false" text="USERNAME" />
-                        <TableColumn prefWidth="147.99993896484375" resizable="false" text="ROLE" />
-                        <TableColumn prefWidth="226.666748046875" resizable="false" text="POSITION" />
-                        <TableColumn prefWidth="77.33331298828125" text="ACTION" />
+                      <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="nameColumn" prefWidth="339.3333282470703" resizable="false" text="USERNAME" />
+                        <TableColumn fx:id="roleColumn" prefWidth="229.333251953125" resizable="false" text="ROLE" />
+                        <TableColumn fx:id="actionColumn" prefWidth="124.0" resizable="false" text="ACTION" />
                     </columns>
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" />

@@ -8,6 +8,8 @@ module com.keymanager {
     requires org.kordamp.bootstrapfx.core;
     requires MaterialFX;
     requires java.sql;
+    requires java.management;
+    requires jdk.jfr;
 
     opens app to javafx.fxml;
     opens app.controllers.dashboard;
@@ -18,7 +20,9 @@ module com.keymanager {
     opens app.controllers.keys;
     opens app.controllers.login;
     opens app.controllers.personnel;
+    opens app.entities;
     opens app.controllers to javafx.fxml;
+    opens app.models;
 
     exports app;
     exports app.controllers;

@@ -315,7 +315,7 @@
                               <Insets left="5.0" />
                            </padding>
                         </HBox>
-                        <VBox prefHeight="101.0" prefWidth="177.0" style="-fx-background-color: #fff;">
+                        <VBox prefHeight="116.0" prefWidth="177.0" style="-fx-background-color: #fff;">
                            <children>
                               <Label fx:id="currentUserLabel" text="Username" textFill="#084c80">
                                  <font>
@@ -323,7 +323,7 @@
                                  </font>
                               </Label>
                               <Line endX="64.62625885009766" endY="0.4595395624637604" startX="-100.0" stroke="#cecece" />
-                              <Button fx:id="signoutButton" alignment="CENTER" mnemonicParsing="false" onAction="#logOutUser" prefHeight="27.0" prefWidth="167.0" style="-fx-border-color: #ff9999; -fx-border-radius: 6;" text="Sign Out" textFill="RED">
+                              <Button fx:id="signoutButton" alignment="CENTER" mnemonicParsing="false" onAction="#logOutUser" prefHeight="25.0" prefWidth="167.0" style="-fx-border-color: #ff9999; -fx-border-radius: 6;" text="Sign Out" textFill="RED">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -339,12 +339,12 @@
                               <Insets left="5.0" right="5.0" top="5.0" />
                            </padding>
                            <VBox.margin>
-                              <Insets top="220.0" />
+                              <Insets top="200.0" />
                            </VBox.margin>
                         </VBox>
                      </children>
                      <HBox.margin>
-                        <Insets />
+                        <Insets right="10.0" />
                      </HBox.margin>
                      <padding>
                         <Insets top="10.0" />
