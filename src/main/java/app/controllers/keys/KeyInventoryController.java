@@ -100,7 +100,7 @@ public class KeyInventoryController extends KeysEntity implements Initializable 
     public void filterKeysTable(KeyEvent event) {
         try {
             keysTable.getItems().clear();
-            FilteredList<KeysEntity> filteredList =  new FilteredList<>(keysTable.getItems(), p -> true);
+            FilteredList<KeysEntity> filteredList =  new FilteredList<>(fetchAllKeys(), p -> true);
             filterField.textProperty().addListener((observable, oldValue, newValue) -> {
                 filteredList.setPredicate(item -> {
                     if (newValue.isEmpty() || newValue.isBlank()) {

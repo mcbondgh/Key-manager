@@ -6,12 +6,8 @@ import app.entities.UsersEntity;
 import io.github.palexdev.materialfx.collections.ObservableStack;
 import javafx.collections.ObservableList;
 
-import java.security.Key;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DAO extends DbConfig{
 
@@ -135,6 +131,16 @@ public class DAO extends DbConfig{
                 data.add(new KeysEntity(id, code, counter, alias, status, note, booked, modified_date, userId, room));
             }
         }catch (Exception e){}
+        return data;
+    }
+    public ObservableList<Object>fetchAllDepartments() {
+        ObservableList<Object> data = new ObservableStack<>();
+        try {
+            resultSet = getConnection().createStatement().executeQuery("SELECT * FROM departments");
+            while(resultSet.next()) {
+                data.add(resultSet.getString("department"));
+            }
+        }catch (Exception ignored){}
 
         return data;
     }

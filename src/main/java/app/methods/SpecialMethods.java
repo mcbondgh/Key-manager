@@ -52,6 +52,19 @@ public class SpecialMethods {
         item.addAll("Male", "Female", "Other");
         comboBox.setItems(item);
     }
+    public static void setTitle(ComboBox<String> comboBox) {
+        ObservableList<String> item = new ObservableStack<>();
+        item.addAll("N.T STAFF", "LECTURER", "SERVICE PERSONNEL", "STUDENT");
+        comboBox.setItems(item);
+    }
+    public static void setDepartment(ComboBox<String> comboBox) {
+            comboBox.getItems().clear();
+            DAO_OBJ.fetchAllDepartments().forEach(item -> {
+                comboBox.getItems().add(item.toString());
+            });
+
+    }
+
 
     public static void setRoomNumbers(ComboBox<String> comboBox)
     {

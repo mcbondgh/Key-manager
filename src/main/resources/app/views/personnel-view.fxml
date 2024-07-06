@@ -52,7 +52,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="85.0" prefWidth="345.0" spacing="10.0" style="-fx-border-color: #ddd; -fx-border-radius: 5px;">
                            <children>
-                              <ImageView fitHeight="88.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageView" fitHeight="88.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/icons8-student-100.png" />
                                  </image>
@@ -62,7 +62,7 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Separator>
-                              <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="101.0" style="-fx-background-color: orange;" text="Upload Image" textFill="WHITE">
+                              <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#uploadImageButtonClicked" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: orange;" text="Upload Image" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -80,7 +80,7 @@
                                     <Font name="Arial" size="12.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                              <TextField fx:id="nameField" prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
                                  <font>
                                     <Font name="Arial" size="14.0" />
                                  </font>
@@ -90,28 +90,14 @@
                         <Separator prefWidth="200.0" />
                         <HBox spacing="5.0">
                            <children>
-                              <VBox prefHeight="58.0" prefWidth="199.0" spacing="2.0">
+                              <VBox prefHeight="55.0" prefWidth="360.0" spacing="2.0">
                                  <children>
                                     <Label text="Mobile Number *">
                                        <font>
                                           <Font name="System Bold" size="11.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="30.0" prefWidth="323.0" promptText="0200000001" style="-fx-background-color: #eee;">
-                                       <font>
-                                          <Font name="Arial" size="14.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="58.0" prefWidth="323.0" spacing="2.0">
-                                 <children>
-                                    <Label text="Email Address *">
-                                       <font>
-                                          <Font name="System Bold" size="11.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                                    <TextField fx:id="numberField" prefHeight="30.0" prefWidth="323.0" promptText="0200000001" style="-fx-background-color: #eee;">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -128,7 +114,7 @@
                                     <Font name="System Bold" size="11.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                              <TextField fx:id="cardNumberField" prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
                                  <font>
                                     <Font name="Arial" size="14.0" />
                                  </font>
@@ -145,7 +131,7 @@
                                           <Font name="System Bold" size="11.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker prefHeight="30.0" style="-fx-font-size: 14px; -fx-background-color: #fff;" />
+                                    <DatePicker fx:id="issueDate" prefHeight="30.0" style="-fx-font-size: 14px; -fx-background-color: #fff;" />
                                  </children>
                               </VBox>
                               <VBox prefHeight="56.0" prefWidth="323.0" spacing="2.0">
@@ -155,7 +141,7 @@
                                           <Font name="System Bold" size="11.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker prefHeight="30.0" style="-fx-font-size: 14px; -fx-background-color: #fff;" />
+                                    <DatePicker fx:id="expiryDate" prefHeight="30.0" style="-fx-font-size: 14px; -fx-background-color: #fff;" />
                                  </children>
                               </VBox>
                            </children>
@@ -170,7 +156,7 @@
                                           <Font name="System Bold" size="11.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                                    <ComboBox fx:id="titleSelector" prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
                                  </children>
                               </VBox>
                               <VBox prefHeight="59.0" prefWidth="345.0" spacing="2.0">
@@ -181,7 +167,7 @@
                                           <Font name="System Bold" size="11.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                                    <ComboBox fx:id="departmentSelector" prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
                                  </children>
                               </VBox>
                            </children>
@@ -189,12 +175,12 @@
                         <Separator prefWidth="345.0" style="-fx-background-color: orange;" />
                         <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
                           <buttons>
-                            <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE" textAlignment="CENTER" textFill="WHITE">
+                            <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="SAVE" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearButtonClicked" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -234,7 +220,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="37.0" prefWidth="671.0" promptText="Filter Table" style="-fx-border-color: #d8f1ff; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 4px;">
+                              <TextField fx:id="filterField" prefHeight="37.0" prefWidth="671.0" promptText="Filter Table" style="-fx-border-color: #d8f1ff; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 4px;">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -244,14 +230,14 @@
                               <Insets left="10.0" />
                            </padding>
                         </HBox>
-                        <TableView prefHeight="413.0" prefWidth="749.0">
+                        <TableView fx:id="peopleTable" prefHeight="413.0" prefWidth="749.0" style="-fx-font-family: roboto; -fx-font-size: 13px;">
                           <columns>
-                            <TableColumn prefWidth="175.33330726623535" text="FULL NAME" />
-                            <TableColumn minWidth="0.0" prefWidth="128.6667022705078" text="MOBILE NUMBER" />
-                              <TableColumn minWidth="0.0" prefWidth="104.66668701171875" text="CARD NUMBER" />
-                              <TableColumn minWidth="0.0" prefWidth="114.66659545898438" text="TITLE" />
-                              <TableColumn minWidth="0.0" prefWidth="130.6666259765625" text="EXPIRY DATE" />
-                              <TableColumn minWidth="22.6666259765625" prefWidth="70.66664632161462" text="ACTION" />
+                            <TableColumn fx:id="nameColumn" prefWidth="175.33330726623535" text="FULL NAME" />
+                            <TableColumn fx:id="numberColumn" minWidth="0.0" prefWidth="108.66668701171875" text="MOBILE" />
+                              <TableColumn fx:id="cardColumn" minWidth="0.0" prefWidth="112.0" text="CARD NUMBER" />
+                              <TableColumn fx:id="titleColumn" minWidth="0.0" prefWidth="72.66668701171875" text="TITLE" />
+                              <TableColumn fx:id="endDateColumn" minWidth="22.6666259765625" prefWidth="130.00006103515625" text="EXPIRY DATE" />
+                              <TableColumn fx:id="actionColumn" minWidth="0.0" prefWidth="112.0" text="ACTION" />
                           </columns>
                         </TableView>
                      </children>
