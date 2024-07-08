@@ -1,6 +1,5 @@
 package app.entities;
 
-import app.conf.DAO;
 import app.models.KeyModel;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,7 +10,7 @@ public class KeysEntity extends KeyModel {
     //key_id, key_code, key_count, room_id, block_id, key_status, notes, is_booked, date_modified, modified_by
 
     private int key_id, key_count, block_id, room_id;
-    private boolean is_booked, key_status;
+    private boolean booked, key_status;
     private String key_code, block_alias, room_number, notes;
     private int modified_by;
     private Timestamp date_modified;
@@ -26,7 +25,7 @@ public class KeysEntity extends KeyModel {
         this.block_alias= block_alias;
         this.key_status = key_status;
         this.notes = notes;
-        this.is_booked = is_booked;
+        this.booked = is_booked;
         this.date_modified = date_modified;
         this.modified_by = modified_by;
         this.room_number = room_number;
@@ -96,12 +95,12 @@ public class KeysEntity extends KeyModel {
         this.key_count = key_count;
     }
 
-    public boolean isIs_booked() {
-        return is_booked;
+    public boolean isBooked() {
+        return booked;
     }
 
-    public void setIs_booked(boolean is_booked) {
-        this.is_booked = is_booked;
+    public void setBooked(boolean booked) {
+        this.booked = booked;
     }
 
     public boolean isKey_status() {

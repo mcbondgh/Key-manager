@@ -151,7 +151,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="clearBlockBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearBlocksButtonClicked" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="clearBlocksBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearBlocksButtonClicked" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>

@@ -1,7 +1,7 @@
 package app.controllers;
 
 import app.controllers.dashboard.DashboardViewController;
-import app.controllers.keys.IssueKeysController;
+import app.controllers.keys.KeyTransactionsController;
 import app.controllers.keys.KeyInventoryController;
 import app.controllers.keys.KeyScheduleController;
 import app.controllers.manage_users.ManageUsersController;
@@ -62,7 +62,7 @@ public class MainViewController implements Initializable{
     }
     public void keyIssuanceNavClicked() throws IOException {
         String fxmlFile = "views/key-issuance-view.fxml";
-        IssueKeysController.pageTitlePlaceholder = keyIssuanceNav.getText();
+        KeyTransactionsController.pageTitlePlaceholder = keyIssuanceNav.getText();
         SpecialMethods.ChangeView(fxmlFile, borderPane);
     }
     public void blocksAndOfficesNavClicked() throws IOException {

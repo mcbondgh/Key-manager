@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" style="-fx-background-color: #eaf5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.keys.IssueKeysController">
+<AnchorPane prefHeight="600.0" style="-fx-background-color: #eaf5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.keys.KeyTransactionsController">
    <children>
       <VBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1161.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 5 5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,12 +30,15 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="1141.0" spacing="5.0" style="-fx-background-color: #fff;">
                <children>
-                  <Label text="🔎" textFill="#8f8f8f">
+                  <Label prefHeight="30.0" prefWidth="59.0" text="🔎" textFill="#8f8f8f">
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </Label>
-                  <TextField prefHeight="37.0" prefWidth="686.0" promptText="Filter Table" style="-fx-border-color: #d8f1ff; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 4px;">
+                  <TextField fx:id="searchField" onKeyTyped="#filterTransactionsTable" prefHeight="37.0" prefWidth="663.0" promptText="Filter Table" style="-fx-border-color: #d8f1ff; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 4px;">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -57,17 +60,19 @@
                   <Insets left="10.0" />
                </padding>
             </HBox>
-            <TableView prefHeight="439.0" prefWidth="1141.0">
+            <TableView fx:id="transactionsTable" fixedCellSize="32.0" onMouseEntered="#refreshTableOnMouseFocus" prefHeight="439.0" prefWidth="1141.0" style="-fx-font-size: 13px; -fx-font-family: roboto;" tableMenuButtonVisible="true">
               <columns>
-                <TableColumn prefWidth="75.0" text="COUNT" />
-                <TableColumn prefWidth="121.99999237060547" text="KEY CODE" />
-                  <TableColumn prefWidth="158.6666717529297" text="PERSONNEL NAME" />
-                  <TableColumn prefWidth="134.66665649414062" text="TITLE" />
-                  <TableColumn prefWidth="237.33331298828125" text="PURPOSE" />
-                  <TableColumn prefWidth="132.00006103515625" text="STATUS" />
-                  <TableColumn prefWidth="206.0" text="ISSUED DATE" />
-                  <TableColumn prefWidth="73.3333740234375" text="ACTION" />
+                <TableColumn fx:id="idColumn" prefWidth="71.33334636688232" text="TRANS ID" />
+                <TableColumn fx:id="keyCode" prefWidth="113.99999237060547" text="KEY CODE" />
+                  <TableColumn fx:id="alias" prefWidth="102.66667175292969" text="BLOCK" />
+                  <TableColumn fx:id="cardNumber" prefWidth="164.66665649414062" text="CARD NUMBER" />
+                  <TableColumn fx:id="purpose" prefWidth="328.6666564941406" text="PURPOSE" />
+                  <TableColumn fx:id="issuedDate" prefWidth="196.0" text="ISSUED DATE" />
+                  <TableColumn fx:id="action" prefWidth="104.0" style="-fx-alignment: center;" text="ACTION" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </children>
          <padding>

@@ -32,11 +32,11 @@
             </Label>
          </children>
       </VBox>
-      <SplitPane dividerPositions="0.3481012658227848" layoutX="11.333333333333334" layoutY="97.0" prefHeight="551.0" prefWidth="1150.0" style="-fx-background-color: #eaf5ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <SplitPane dividerPositions="0.2850978135788262" layoutX="11.333333333333334" layoutY="97.0" prefHeight="551.0" prefWidth="1150.0" style="-fx-background-color: #eaf5ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <VBox layoutX="93.0" layoutY="102.0" prefHeight="548.6666666666666" prefWidth="363.3333333333333" spacing="5.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox layoutX="93.0" layoutY="102.0" onMouseMoved="#checkForEmptyFieldsOnMouseMoved" prefHeight="548.6666666666666" prefWidth="363.3333333333333" spacing="5.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="323.0" style="-fx-background-color: #d8f1ff;">
                            <children>
@@ -50,7 +50,7 @@
                               <Insets left="30.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="345.0" spacing="10.0" style="-fx-border-color: #ddd; -fx-border-radius: 5px;">
+                        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="345.0" spacing="5.0" style="-fx-border-color: #ddd; -fx-border-radius: 5px;">
                            <children>
                               <ImageView fx:id="imageView" fitHeight="88.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -62,9 +62,9 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Separator>
-                              <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#uploadImageButtonClicked" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: orange;" text="Upload Image" textFill="WHITE">
+                              <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#uploadImageButtonClicked" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: orange;" text="Upload Image" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="10.0" />
@@ -97,7 +97,7 @@
                                           <Font name="System Bold" size="11.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="numberField" prefHeight="30.0" prefWidth="323.0" promptText="0200000001" style="-fx-background-color: #eee;">
+                                    <TextField fx:id="numberField" onKeyTyped="#validateNumberField" prefHeight="30.0" prefWidth="323.0" promptText="0200000001" style="-fx-background-color: #eee;">
                                        <font>
                                           <Font name="Arial" size="14.0" />
                                        </font>
@@ -220,7 +220,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="filterField" prefHeight="37.0" prefWidth="671.0" promptText="Filter Table" style="-fx-border-color: #d8f1ff; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 4px;">
+                              <TextField fx:id="filterField" onKeyTyped="#filterTableByKeyword" prefHeight="37.0" prefWidth="671.0" promptText="Filter Table" style="-fx-border-color: #d8f1ff; -fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-width: 4px;">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -230,7 +230,7 @@
                               <Insets left="10.0" />
                            </padding>
                         </HBox>
-                        <TableView fx:id="peopleTable" prefHeight="413.0" prefWidth="749.0" style="-fx-font-family: roboto; -fx-font-size: 13px;">
+                        <TableView fx:id="peopleTable" onMouseMoved="#tableItemSelected" prefHeight="413.0" prefWidth="749.0" style="-fx-font-family: roboto; -fx-font-size: 13px;">
                           <columns>
                             <TableColumn fx:id="nameColumn" prefWidth="175.33330726623535" text="FULL NAME" />
                             <TableColumn fx:id="numberColumn" minWidth="0.0" prefWidth="108.66668701171875" text="MOBILE" />

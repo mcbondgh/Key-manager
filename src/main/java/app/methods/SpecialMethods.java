@@ -6,13 +6,17 @@ import app.entities.BlocksAndRoomsEntity;
 import app.roles.Roles;
 import io.github.palexdev.materialfx.collections.ObservableStack;
 import javafx.animation.FadeTransition;
+import javafx.beans.NamedArg;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 import javax.management.relation.Role;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 public class SpecialMethods {
@@ -54,7 +58,7 @@ public class SpecialMethods {
     }
     public static void setTitle(ComboBox<String> comboBox) {
         ObservableList<String> item = new ObservableStack<>();
-        item.addAll("N.T STAFF", "LECTURER", "SERVICE PERSONNEL", "STUDENT");
+        item.addAll("N.T STAFF", "STAFF", "SERVICE PERSONNEL", "STUDENT");
         comboBox.setItems(item);
     }
     public static void setDepartment(ComboBox<String> comboBox) {
@@ -63,6 +67,11 @@ public class SpecialMethods {
                 comboBox.getItems().add(item.toString());
             });
 
+    }
+
+    public static Image loadImageData(byte[] data) {
+        ByteArrayInputStream stream = new ByteArrayInputStream(data);
+        return new Image(stream);
     }
 
 

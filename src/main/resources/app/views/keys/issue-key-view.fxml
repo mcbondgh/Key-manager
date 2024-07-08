@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
@@ -16,12 +17,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="822.0" style="-fx-background-color: #eaf5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="822.0" style="-fx-background-color: #eaf5ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.keys.IssueKeyController">
    <children>
       <VBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1161.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 5 5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <padding>
@@ -64,27 +64,30 @@
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
-                  <VBox prefHeight="113.0" prefWidth="411.0" spacing="5.0">
+                  <VBox prefHeight="124.0" prefWidth="391.0" spacing="5.0">
                      <children>
-                        <VBox prefHeight="58.0" prefWidth="323.0" spacing="2.0">
+                        <VBox prefHeight="77.0" prefWidth="371.0" spacing="2.0">
                            <children>
                               <Separator prefWidth="200.0" />
-                              <Label text="Eenter card number for verification *">
+                              <Label prefHeight="15.0" prefWidth="201.0" text="Eenter card number for verification *" textFill="#dd1b1b">
                                  <font>
                                     <Font name="Arial Italic" size="12.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="30.0" prefWidth="323.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
+                              <TextField fx:id="searchField" onKeyTyped="#validateSearchField" prefHeight="47.0" prefWidth="371.0" promptText="Koforidua Technical University" style="-fx-background-color: #eee;">
                                  <font>
-                                    <Font name="Arial" size="14.0" />
+                                    <Font name="Arial" size="16.0" />
                                  </font>
                               </TextField>
                            </children>
                         </VBox>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="399.0" style="-fx-background-color: #337fb5;" text="QUICK CHECK 🔎" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="searchButton" alignment="CENTER" contentDisplay="CENTER" disable="true" minWidth="61.0" mnemonicParsing="false" onAction="#searchButtonClicked" prefHeight="25.0" prefWidth="399.0" style="-fx-background-color: #337fb5;" text="QUICK CHECK 🔎" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                      <padding>
@@ -96,21 +99,17 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Separator>
-                  <StackPane fx:id="statusContainer" prefHeight="31.0" prefWidth="391.0" style="-fx-background-color: #fdd5d5; -fx-background-radius: 5;">
+                  <Label fx:id="statusText" alignment="CENTER" prefHeight="30.0" prefWidth="377.0" style="-fx-background-color: #caffe1; -fx-background-radius: 5px;" text="THIS PERSON IS NOT ALLOED" textFill="#097237" visible="false">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
-                     <children>
-                        <Label fx:id="statusText" text="THIS PERSON IS NOT ALLOED" textFill="#a10a00">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </StackPane>
+                  </Label>
                   <HBox alignment="CENTER" prefHeight="153.0" prefWidth="384.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;">
                      <children>
-                        <ImageView fitHeight="148.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageView" fitHeight="148.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/icons8-landlord-100.png" />
                            </image>
@@ -129,8 +128,8 @@
                   </HBox>
                   <GridPane alignment="CENTER" prefHeight="98.0" prefWidth="398.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.33331298828125" minWidth="10.0" prefWidth="94.66666666666667" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.6666793823242" minWidth="10.0" prefWidth="296.6666666666667" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.33331298828125" minWidth="10.0" prefWidth="87.33335367838542" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.6666793823242" minWidth="10.0" prefWidth="283.99997965494794" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -156,17 +155,17 @@
                               <Font name="Arial" size="12.0" />
                            </font>
                         </Label>
-                        <Label text="DR. KOFI MENSAH ATSU" textFill="#0a5f8d" GridPane.columnIndex="1">
+                        <Label fx:id="nameLabel" text="-" textFill="#0a5f8d" GridPane.columnIndex="1">
                            <font>
                               <Font name="Arial Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label text="HOD COMPUTER SCIENCE" textFill="#0a5f8d" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="titleLabel" text="-" textFill="#0a5f8d" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label text="COMPUTER SCIENCE" textFill="#0a5f8d" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="departmentLabel" text="-" textFill="#0a5f8d" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Bold" size="12.0" />
                            </font>
@@ -175,7 +174,7 @@
                   </GridPane>
                </children>
             </VBox>
-            <VBox prefHeight="534.0" prefWidth="432.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;">
+            <VBox fx:id="issueKeyBox" onMouseMoved="#checkFormEmptySelectors" disable="true" prefHeight="534.0" prefWidth="432.0" style="-fx-background-color: #fff; -fx-background-radius: 5px;">
                <children>
                   <HBox alignment="CENTER" prefHeight="42.0" prefWidth="411.0">
                      <children>
@@ -194,13 +193,13 @@
                               <Font name="System Bold" size="11.0" />
                            </font>
                         </Label>
-                        <ComboBox prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                        <ComboBox fx:id="blockSelector" onAction="#blockItemSelected" prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </VBox>
-                  <VBox prefHeight="59.0" prefWidth="345.0" spacing="2.0">
+                  <VBox fx:id="keySelectorBox" prefHeight="59.0" prefWidth="345.0" spacing="2.0">
                      <children>
                         <Separator prefWidth="200.0" />
                         <Label text="Select Available Key *">
@@ -208,7 +207,7 @@
                               <Font name="System Bold" size="11.0" />
                            </font>
                         </Label>
-                        <ComboBox prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                        <ComboBox fx:id="keySelector" prefHeight="30.0" prefWidth="951.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
                      </children>
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" />
@@ -222,7 +221,7 @@
                               <Font name="System Bold" size="11.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="145.0" prefWidth="434.0">
+                        <TextArea fx:id="purposeField" prefHeight="145.0" prefWidth="434.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -239,19 +238,25 @@
                   </Separator>
                   <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
                      <buttons>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #337fb5;" text="ISSUE KEY" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="issueKeyButton" alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" onAction="#issueKeyButtonClicked" prefHeight="25.0" prefWidth="383.0" style="-fx-background-color: #337fb5;" text="ISSUE KEY" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: orange;" text="CANCEL " textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearFieldsButtonClicked" prefHeight="25.0" style="-fx-background-color: orange;" text="CLEAR FIELDS" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </buttons>
                      <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                        <Insets right="10.0" />
                      </VBox.margin>
                   </ButtonBar>
                </children>
