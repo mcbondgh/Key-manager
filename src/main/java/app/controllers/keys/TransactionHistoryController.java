@@ -1,6 +1,7 @@
 package app.controllers.keys;
 
 import app.conf.AlertDialogs;
+import app.documents.DocGenerator;
 import app.entities.KeyTransactionsEntity;
 import app.models.UsersModel;
 import io.github.palexdev.materialfx.collections.ObservableStack;
@@ -79,6 +80,16 @@ public class TransactionHistoryController extends UsersModel implements Initiali
         });
 
         exportBtn.setOnAction(event -> {
+            if (!transactionTable.getItems().isEmpty()) {
+                if (DocGenerator.createPdfDocument("transaction report.pdf", transactionTable))
+                {
+                    ALERT = new AlertDialogs("DATA EXPORTED", "Key transaction report successfully generated.", "exported to desktop");
+                    ALERT.successAlert();
+                }
+            } else {
+                ALERT = new AlertDialogs("EMPTY TABLE", "Table has no generated data.", "please generate table data to export");
+                ALERT.errorAlert();
+            }
 
         });
 

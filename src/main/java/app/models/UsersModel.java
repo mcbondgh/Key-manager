@@ -140,12 +140,12 @@ public class UsersModel extends DAO {
 
     protected void updateReturnedDate(int transId, String returnedBy) {
         try {
-            String query = "UPDATE key_transaction SET returned_date = CURRENT_TIMESTAMP(), returned_by = ? WHERE id = ?;";
+            String query = "UPDATE key_transaction SET returned_date = CURRENT_TIMESTAMP(), return_status = TRUE, returned_by = ? WHERE id = ?;";
             preparedStatement = getConnection().prepareStatement(query);
             preparedStatement.setString(1, returnedBy);
             preparedStatement.setInt(2, transId);
             preparedStatement.execute();
-        }catch (SQLException ignore){}
+        }catch (SQLException ignore){ignore.printStackTrace();}
     }
 
 }//end of class...

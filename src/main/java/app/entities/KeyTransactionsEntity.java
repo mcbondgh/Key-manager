@@ -13,7 +13,7 @@ public class KeyTransactionsEntity {
     private int id, userId;
     private  String cardNumber, keyCode, blockAlias, purpose, username;
     private Timestamp transactionDate, returnedDate;
-    private boolean booked;
+    private boolean booked, returnStatus;
     private Button actionButton = new Button("Collect Key");
     private Label dateLabel = new Label();
     String issuedTo, issuedBy, returnedBy;
