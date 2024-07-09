@@ -1,7 +1,7 @@
 package app.controllers.manage_users;
 
 import app.conf.AlertDialogs;
-import app.conf.DataEncryption;
+import app.conf.security.DataEncryption;
 import app.controllers.MainViewController;
 import app.entities.UsersEntity;
 import app.methods.SpecialMethods;

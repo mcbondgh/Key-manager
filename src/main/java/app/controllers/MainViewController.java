@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.conf.security.UserAuthentication;
 import app.controllers.dashboard.DashboardViewController;
 import app.controllers.keys.KeyTransactionsController;
 import app.controllers.keys.KeyInventoryController;
@@ -9,11 +10,15 @@ import app.controllers.blocks.BlocksAndOfficesController;
 import app.controllers.personnel.PersonnelController;
 import app.controllers.report.ReportsController;
 import app.controllers.settings.SettingsViewController;
+import app.entities.AuthenticationData;
+import app.entities.SettingsEntity;
 import app.methods.SpecialMethods;
 import app.stages.AppStages;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -22,11 +27,19 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
-public class MainViewController implements Initializable{
+public class MainViewController extends UserAuthentication implements Initializable{
     public static String viewTitlePlaceholder;
-    public static String loggedInUsername;
+    public static String loggedInUsername, roleName;
+    public HBox reports;
+    public HBox manageKeys;
+    public HBox blocksAndOffices;
+    public HBox keyTransactions;
+    public HBox dashboard;
+    public HBox managePeople;
+    public HBox manageUsers;
+    public HBox systemConfig;
 
     //FXML FILE EJECTIONS
     @FXML private Label currentUserLabel, viewTitle, notificationCounter;
@@ -36,17 +49,28 @@ public class MainViewController implements Initializable{
     @FXML private MFXButton reportsNav, settingsNav, dashboardNav, personnelNav;
     @FXML private MFXButton keyIssuanceNav;
     @FXML private HBox scheduleBox;
-    @FXML private VBox vBox;
+    @FXML private VBox vBox, navButtonItems;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             dashboardNavClicked();
             currentUserLabel.setText(loggedInUsername );
-            vBox.getChildren().remove(scheduleBox);
+            navButtonItems.getChildren().removeAll(scheduleBox);
+            checkViewAccess();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void checkViewAccess() {
+        List<AuthenticationData> userAuthenticationList = hasAccess(roleName);
+        navButtonItems.getChildren().forEach(item -> userAuthenticationList.forEach(listItem -> {
+            if (listItem.getViewId().equalsIgnoreCase(item.getId())) {
+                item.setDisable(!listItem.isStatus());
+            }
+        }));
+
     }
 
     //ACTION EVENT METHODS IMPLEMENTATION
