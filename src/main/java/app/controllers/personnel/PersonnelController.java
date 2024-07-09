@@ -118,7 +118,7 @@ public class PersonnelController extends UsersModel implements Initializable {
         expiryDate.setValue(LocalDate.now());
         issueDate.setValue(LocalDate.now());
         saveButton.setText("SAVE");
-        peopleTable.getSelectionModel().clearSelection();
+        loadPeopleTable();
     }
 
     void loadPeopleTable() {
@@ -267,6 +267,7 @@ public class PersonnelController extends UsersModel implements Initializable {
     @FXML
     void clearButtonClicked() {
         resetFields();
+
     }
 
 }//END OF CLASS

@@ -214,12 +214,12 @@ public class DAO extends DbConfig {
             String query = """
                     SELECT kt.id, kt.key_code, block_alias, is_booked,
                            kt.card_number, purpose,\s
-                           transaction_date, returned_date, username\s
+                           transaction_date, return_status, returned_date, username\s
                            FROM key_transaction AS kt
                            INNER JOIN people AS p USING(card_number)\s
                            INNER JOIN users AS u USING(user_id)
                            INNER JOIN `keys` AS k USING(key_code)
-                    WHERE is_booked = TRUE OR DATE(transaction_date) = CURRENT_DATE;
+                    WHERE((is_booked = TRUE OR DATE(transaction_date) = CURRENT_DATE) AND return_status = 0);
                     """;
             resultSet = getConnection().createStatement().executeQuery(query);
             while (resultSet.next()) {
@@ -268,12 +268,29 @@ public class DAO extends DbConfig {
                 String username = resultSet.getString("username");
                 data.add(new KeyTransactionsEntity(id, code, indexNumber, alias, purpose,returnedBy, issuedDate, returnedDate, username));
             }
+            resultSet.close();
+            getConnection().close();
         }catch (SQLException ignore) {
-
         }
-
         return data;
     }
 
+    public ObservableList<SettingsEntity> fetchAccessControlList() {
+        ObservableList<SettingsEntity> data = new ObservableStack<>();
+        try {
+            resultSet = getConnection().createStatement().executeQuery("SELECT * FROM access_control");
+            while(resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String viewId = resultSet.getString("view_id");
+                String role = resultSet.getString("role_name");
+                boolean status = resultSet.getBoolean("is_allowed");
+                data.add(new SettingsEntity(id, viewId, role, status));
+            }
+            resultSet.close();
+            getConnection().close();
+        }catch (SQLException e){e.printStackTrace();}
+
+        return data;
+    }
 
 }//end of class

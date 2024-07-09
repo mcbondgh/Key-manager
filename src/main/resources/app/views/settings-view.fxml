@@ -44,7 +44,7 @@
                            <children>
                               <VBox prefHeight="516.0" prefWidth="881.0" style="-fx-border-color: #ddd; -fx-border-radius: 5px;">
                                  <children>
-                                    <VBox prefHeight="59.0" prefWidth="371.0" spacing="2.0">
+                                    <VBox prefHeight="59.0" prefWidth="371.0" spacing="2.0" visible="false">
                                        <children>
                                           <Label text="System Name *">
                                              <font>
@@ -62,26 +62,26 @@
                                        </VBox.margin>
                                     </VBox>
                                     <Separator prefWidth="200.0" />
-                                    <TitledPane animated="false" prefHeight="403.0" prefWidth="869.0" text="USER PERMISSIONS">
+                                    <TitledPane animated="false" prefHeight="391.0" prefWidth="869.0" text="USER PERMISSIONS">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFF;">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" onMouseMoved="#checkRoleSelector" prefHeight="363.0" prefWidth="867.0" style="-fx-background-color: #FFF;">
                                              <children>
                                                 <VBox prefHeight="370.6666666666667" prefWidth="867.3333333333334" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <VBox prefHeight="43.0" prefWidth="310.0" spacing="2.0">
+                                                      <VBox prefHeight="65.0" prefWidth="849.0" spacing="2.0">
                                                          <children>
                                                             <Label text="Select Block *">
                                                                <font>
                                                                   <Font name="System Bold" size="12.0" />
                                                                </font>
                                                             </Label>
-                                                            <ComboBox prefHeight="30.0" prefWidth="905.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
+                                                            <ComboBox fx:id="roleSelector" onAction="#roleSelectorOnAction" prefHeight="55.0" prefWidth="849.0" style="-fx-background-color: #eee; -fx-font-size: 14px;" />
                                                          </children>
                                                          <padding>
                                                             <Insets bottom="10.0" />
                                                          </padding>
                                                       </VBox>
-                                                      <GridPane prefHeight="168.0" prefWidth="852.0">
+                                                      <GridPane fx:id="gridPane" prefHeight="168.0" prefWidth="852.0">
                                                         <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -93,47 +93,47 @@
                                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                         </rowConstraints>
                                                          <children>
-                                                            <CheckBox mnemonicParsing="false" text="MANAGE BLOCKS &amp; OFFICES">
+                                                            <CheckBox fx:id="blocksAndOffices" mnemonicParsing="false" text="MANAGE BLOCKS &amp; OFFICES">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="ISSUE KEYS" GridPane.columnIndex="1">
+                                                            <CheckBox fx:id="issueKeys" mnemonicParsing="false" text="ISSUE KEYS" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="VIEW KEY TRANSACTIONS" GridPane.rowIndex="1">
+                                                            <CheckBox fx:id="keyTransactions" mnemonicParsing="false" text="VIEW KEY TRANSACTIONS" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="MANAGE PEOPLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                            <CheckBox fx:id="managePeople" mnemonicParsing="false" text="MANAGE PEOPLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="MANAGE USERS" GridPane.rowIndex="2">
+                                                            <CheckBox fx:id="manageUsers" mnemonicParsing="false" text="MANAGE USERS" GridPane.rowIndex="2">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="NOTIFICATIONS" GridPane.columnIndex="2">
+                                                            <CheckBox fx:id="systemConfig" mnemonicParsing="false" text="SYSTEM CONFIGURATIONS" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="SYSTEM CONFIGURATIONS" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                            <CheckBox fx:id="reports" layoutX="576.0" layoutY="29.0" mnemonicParsing="false" text="GENERATE REPORTS" GridPane.columnIndex="2">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox layoutX="576.0" layoutY="29.0" mnemonicParsing="false" text="GENERATE REPORTS" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <CheckBox fx:id="manageKeys" mnemonicParsing="false" text="MANAGE KEYS" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox mnemonicParsing="false" text="MANAGE KEYS" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                            <CheckBox fx:id="dashboard" mnemonicParsing="false" text="DASHBOARD" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
@@ -151,7 +151,7 @@
                                     </TitledPane>
                                     <ButtonBar prefHeight="48.0" prefWidth="324.0" style="-fx-alignment: center;">
                                        <buttons>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #337fb5;" text="APPLY CHANGES" textAlignment="CENTER" textFill="WHITE">
+                                          <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" minWidth="61.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #337fb5;" text="APPLY CHANGES" textAlignment="CENTER" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>

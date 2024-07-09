@@ -14,6 +14,7 @@ public class AppStarter extends Application {
     public void start(Stage stage) throws IOException {
         try {
             AppStages.loginStage();
+//            AppStages.keyTransactionsHistoryStage().showAndWait();
         }catch (Exception e) {
             e.printStackTrace();
             AppStages.databaseFailedStage();

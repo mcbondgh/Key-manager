@@ -11,6 +11,8 @@ module com.keymanager {
     requires java.management;
     requires jdk.jfr;
     requires mysql.connector.j;
+    requires kernel;
+    requires layout;
 
     opens app to javafx.fxml;
     opens app.controllers.dashboard;
