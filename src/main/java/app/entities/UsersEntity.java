@@ -20,6 +20,7 @@ public class UsersEntity extends UsersModel implements UsersRepository {
     Timestamp date_created, date_modified;
     int modified_by;
     Button actionButton = new Button("");
+    String statement;
 
     public UsersEntity() {
 
@@ -51,6 +52,11 @@ public class UsersEntity extends UsersModel implements UsersRepository {
         this.date_modified = date_modified;
         this.modified_by = modified_by;
         formatActionButton();
+    }
+    public UsersEntity(int user_id, String username, String statement) {
+        this.user_id = user_id;
+        this.username = username;
+        this.statement = statement;
     }
 
     @Override
@@ -146,6 +152,14 @@ public class UsersEntity extends UsersModel implements UsersRepository {
 
     public Button getActionButton() {
         return actionButton;
+    }
+
+    public String getStatement() {
+        return statement;
+    }
+
+    public void setStatement(String statement) {
+        this.statement = statement;
     }
 
     public void setActionButton(Button actionButton) {
