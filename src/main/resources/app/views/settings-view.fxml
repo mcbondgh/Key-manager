@@ -133,7 +133,7 @@
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>
                                                             </CheckBox>
-                                                            <CheckBox fx:id="dashboard" mnemonicParsing="false" text="DASHBOARD" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                            <CheckBox fx:id="dashboard" mnemonicParsing="false" text="DASHBOARD" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                                                <font>
                                                                   <Font name="System Bold" size="13.0" />
                                                                </font>

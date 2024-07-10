@@ -42,280 +42,281 @@
             </HBox>
             <HBox prefHeight="598.0" prefWidth="1379.0" spacing="2.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox fx:id="vBox" prefHeight="611.0" prefWidth="0.0" spacing="10.0">
+                  <VBox fx:id="vBox" prefHeight="611.0" prefWidth="0.0" spacing="80.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                        <VBox fx:id="navButtonItems" prefHeight="328.0" prefWidth="177.0">
                            <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/dashboard.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="dashboardNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#dashboardNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="DASHBOARD" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              <HBox fx:id="dashboard" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/dashboard.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="dashboardNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#dashboardNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="DASHBOARD" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <contextMenu>
+                                          <ContextMenu>
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                            </items>
+                                          </ContextMenu>
+                                       </contextMenu>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <contextMenu>
-                                    <ContextMenu>
-                                      <items>
-                                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                                      </items>
-                                    </ContextMenu>
-                                 </contextMenu>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-keys-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="keyIssuanceNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#keyIssuanceNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="KEY TRANSACTIONS" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="keyTransactions" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-keys-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="keyIssuanceNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#keyIssuanceNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="KEY TRANSACTIONS" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-office-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="notificationNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#blocksAndOfficesNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="BLOCKS &amp; OFFICES" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="blocksAndOffices" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-office-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="notificationNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#blocksAndOfficesNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="BLOCKS &amp; OFFICES" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-keys-holder-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="keyInventoryNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#keyInventoryNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="KEY INVENTORY" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="manageKeys" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-keys-holder-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="keyInventoryNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#keyInventoryNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="KEY INVENTORY" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox fx:id="scheduleBox" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-settings-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="keyScheduleNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#keyScheduleNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="KEY SCHEDULES" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="scheduleBox" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-settings-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="keyScheduleNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#keyScheduleNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="KEY SCHEDULES" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-management-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="personnelNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#managePersonnelNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="PEOPLE" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="managePeople" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-management-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="personnelNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#managePersonnelNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="PEOPLE" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-management-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="manageUserNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#manageUsersNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="MANAGE USERS" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="manageUsers" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-management-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="manageUserNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#manageUsersNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="MANAGE USERS" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-graph-report-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="reportsNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#reportsNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="REPORTS " textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="reports" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-graph-report-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="reportsNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#reportsNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="REPORTS " textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/icons8-settings-100.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <MFXButton fx:id="settingsNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#settingsNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="SETTINGS" textFill="#084c80">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </HBox>
+                              <HBox fx:id="systemConfig" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="207.0">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/icons8-settings-100.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <MFXButton fx:id="settingsNav" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" onAction="#settingsNavClicked" prefHeight="33.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;" text="SETTINGS" textFill="#084c80">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MFXButton>
+                                 </children>
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MFXButton>
+                              </HBox>
                            </children>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                        </HBox>
-                        <VBox prefHeight="116.0" prefWidth="177.0" style="-fx-background-color: #fff;">
+                        </VBox>
+                        <VBox prefHeight="106.0" prefWidth="177.0" style="-fx-background-color: #fff;">
                            <children>
                               <Label fx:id="currentUserLabel" text="Username" textFill="#084c80">
                                  <font>
@@ -336,10 +337,10 @@
                               </Button>
                            </children>
                            <padding>
-                              <Insets left="5.0" right="5.0" top="5.0" />
+                              <Insets left="10.0" right="5.0" top="5.0" />
                            </padding>
                            <VBox.margin>
-                              <Insets top="200.0" />
+                              <Insets top="150.0" />
                            </VBox.margin>
                         </VBox>
                      </children>

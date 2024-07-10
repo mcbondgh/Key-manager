@@ -148,4 +148,12 @@ public class UsersModel extends DAO {
         }catch (SQLException ignore){ignore.printStackTrace();}
     }
 
+    protected void logUserActivity(int userId) {
+        try {
+            String query = "INSERT INTO activity_logs(performed_by) VALUES('"+userId+"')";
+            preparedStatement = getConnection().prepareStatement(query);
+            preparedStatement.execute();
+        }catch (Exception e){e.printStackTrace();}
+    }
+
 }//end of class...
