@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -18,6 +19,7 @@ import javafx.scene.layout.BorderPane;
 import javax.management.relation.Role;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Map;
 
 public class SpecialMethods {
 
@@ -94,6 +96,11 @@ public class SpecialMethods {
         for (BlocksAndRoomsEntity item : DAO_OBJ.fetchAllBlocks()) {
             comboBox.getItems().add(item.getBlock_alias());
         }
+    }
+
+    public static void setDashboardValues(Label labelName, String itemKey) {
+        Map<String, Object> items = DAO_OBJ.getDashboardObjects();
+        labelName.setText(items.get(itemKey).toString());
     }
 
 }//end of class...

@@ -3,11 +3,13 @@ package app.conf;
 import app.entities.*;
 import io.github.palexdev.materialfx.collections.ObservableStack;
 import javafx.collections.ObservableList;
-
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DAO extends DbConfig {
 
@@ -202,9 +204,7 @@ public class DAO extends DbConfig {
                 Date date = resultSet.getDate("expiry_date");
                 data.add(new PeopleEntity(name, title, department, date, image, isAllowed));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception ignore) {}
         return data;
     }
 
@@ -266,11 +266,11 @@ public class DAO extends DbConfig {
                 Timestamp returnedDate = resultSet.getTimestamp("returned_date");
                 String returnedBy = resultSet.getString("returned_by");
                 String username = resultSet.getString("username");
-                data.add(new KeyTransactionsEntity(id, code, indexNumber, alias, purpose,returnedBy, issuedDate, returnedDate, username));
+                data.add(new KeyTransactionsEntity(id, code, indexNumber, alias, purpose, returnedBy, issuedDate, returnedDate, username));
             }
             resultSet.close();
             getConnection().close();
-        }catch (SQLException ignore) {
+        } catch (SQLException ignore) {
         }
         return data;
     }
@@ -279,7 +279,7 @@ public class DAO extends DbConfig {
         ObservableList<SettingsEntity> data = new ObservableStack<>();
         try {
             resultSet = getConnection().createStatement().executeQuery("SELECT * FROM access_control");
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String viewId = resultSet.getString("view_id");
                 String role = resultSet.getString("role_name");
@@ -288,7 +288,69 @@ public class DAO extends DbConfig {
             }
             resultSet.close();
             getConnection().close();
-        }catch (SQLException e){e.printStackTrace();}
+        } catch (SQLException ignore) {
+        }
+
+        return data;
+    }
+
+    public Map<String, Object> getDashboardObjects() {
+        Map<String, Object> data = new HashMap<>();
+        try {
+            String query1 = "SELECT COUNT(*) FROM blocks;";
+            resultSet = getConnection().createStatement().executeQuery(query1);
+            if (resultSet.next()) {
+                data.put("totalBlocks", resultSet.getInt(1));
+            }
+            String query2 = "SELECT COUNT(*) FROM rooms;";
+            resultSet = getConnection().createStatement().executeQuery(query2);
+            if (resultSet.next()) {
+                data.put("totalRooms", resultSet.getInt(1));
+            }
+            String query3 = "SELECT COUNT(*) FROM `keys`;";
+            resultSet = getConnection().createStatement().executeQuery(query3);
+            if (resultSet.next()) {
+                data.put("totalKeys", resultSet.getInt(1));
+            }
+            String query4 = "SELECT COUNT(*) FROM `keys` WHERE is_booked = true;";
+            resultSet = getConnection().createStatement().executeQuery(query4);
+            if (resultSet.next()) {
+                data.put("bookedKeys", resultSet.getInt(1));
+            }
+            String query5 = "SELECT COUNT(*) FROM `keys` WHERE is_booked = false;";
+            resultSet = getConnection().createStatement().executeQuery(query5);
+            if (resultSet.next()) {
+                data.put("freeKeys", resultSet.getInt(1));
+            }
+            String query6 = "SELECT COUNT(*) FROM people WHERE is_allowed = 1;";
+            resultSet = getConnection().createStatement().executeQuery(query6);
+            if (resultSet.next()) {
+                data.put("approvedPersons", resultSet.getInt(1));
+            }
+            getConnection().close();
+            resultSet.close();
+        } catch (Exception ignore) {
+
+        }
+        return data;
+    }
+
+    public ObservableList<UsersEntity> fetchActivityLogs(LocalDate start, LocalDate end) {
+        ObservableList<UsersEntity> data = new ObservableStack<>();
+        try {
+            String query = "  SELECT log_id, username, DATE(log_date) AS date, TIME(log_date) AS time FROM activity_logs " +
+                    "INNER JOIN users AS u ON u.user_id = performed_by WHERE(DATE(log_date) BETWEEN '"+start+"' AND '"+end+"')";
+            resultSet = getConnection().createStatement().executeQuery(query);
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                Date date = resultSet.getDate(3);
+                Time time = resultSet.getTime(4);
+                String statement = "user logged into the system today " + date.toString() + " at " + time.toString();
+                data.add(new UsersEntity(id, name,statement));
+            }
+        } catch (Exception ignore) {};
+
 
         return data;
     }

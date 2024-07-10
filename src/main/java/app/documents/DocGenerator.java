@@ -7,16 +7,19 @@ import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.draw.ILineDrawer;
+import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Cell;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.property.BorderCollapsePropertyValue;
 import com.itextpdf.layout.property.TextAlignment;
 import javafx.scene.control.TableView;
 
 import javax.swing.text.StyleConstants;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class DocGenerator {
 
@@ -31,6 +34,7 @@ public class DocGenerator {
             Table table = new Table(tableColumnSize);
             table.setFontSize(9);
             table.useAllAvailableWidth();
+            table.setMarginBottom(5);
 
             Cell headerCell = new Cell(1, tableColumnSize)
                     .add(new Paragraph("KEY TRANSACTION REPORT").setBold())
@@ -54,11 +58,12 @@ public class DocGenerator {
                 table.addCell(item.getIssuedBy());
                 table.addCell(item.getPurpose());
             }
-           
+            String createdDate = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDate.now());
+            Paragraph newLine = new Paragraph("Date generated"+createdDate).setFontSize(9).setItalic();
 
 
-
-            document.add(table);
+            document.add(table).add(new LineSeparator(new SolidLine(1)))
+                    .add(newLine);
             document.close();
            return true;
         } catch (FileNotFoundException e) {

@@ -60,7 +60,7 @@
                               </ImageView>
                            </children>
                         </StackPane>
-                        <Label text="100" textFill="#a8a8a8">
+                        <Label fx:id="freeKeys" text="100" textFill="#a8a8a8">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
@@ -91,7 +91,7 @@
                               </ImageView>
                            </children>
                         </StackPane>
-                        <Label text="100" textFill="#a8a8a8">
+                        <Label fx:id="roomsLabel" text="100" textFill="#a8a8a8">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
@@ -122,7 +122,7 @@
                               </ImageView>
                            </children>
                         </StackPane>
-                        <Label text="100" textFill="#a8a8a8">
+                        <Label fx:id="bookedKeysLabel" text="100" textFill="#a8a8a8">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
@@ -153,7 +153,7 @@
                               </ImageView>
                            </children>
                         </StackPane>
-                        <Label text="100" textFill="#a8a8a8">
+                        <Label fx:id="keysLabel" text="100" textFill="#a8a8a8">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
@@ -184,7 +184,7 @@
                               </ImageView>
                            </children>
                         </StackPane>
-                        <Label text="100" textFill="#a8a8a8">
+                        <Label fx:id="approvedLabel" text="100" textFill="#a8a8a8">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
@@ -215,7 +215,7 @@
                               </ImageView>
                            </children>
                         </StackPane>
-                        <Label text="100" textFill="#a8a8a8">
+                        <Label fx:id="blocksLabel" text="100" textFill="#a8a8a8">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
